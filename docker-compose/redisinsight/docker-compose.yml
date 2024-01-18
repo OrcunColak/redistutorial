@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+
+  redis:
+    container_name: redis1
+    image: redis
+    command: redis-server --appendonly yes
+    ports:
+      - "127.0.0.1:6379:6379"
+
+  redis-insight:
+    image: redislabs/redisinsight
+    container_name: redis-insight
+    ports:
+      # http://localhost:8001
+      - "127.0.0.1:8001:8001"
