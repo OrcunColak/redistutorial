@@ -1,0 +1,15 @@
+# https://github.com/tugayesilyurt/spring-debezium-kafka-mysql-redis-cacheable/blob/main/docker-compose.yml
+# bitnami image with volume
+version: '3.8'
+services:
+
+  redis:
+    container_name: redis-master
+    image: 'bitnami/redis:latest'
+    environment:
+      - REDIS_AOF_ENABLED=yes
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/data:/bitnami/redis/data
